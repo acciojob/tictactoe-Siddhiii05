@@ -7,12 +7,12 @@ const message = document.querySelector(".message");
 let player1 = "";
 let player2 = "";
 
-let currentPlayer = "X";
+let currentPlayer = "x";
 let gameOver = false;
 
 submitBtn.addEventListener("click", function () {
-    player1 = document.getElementById("player-1").value;
-    player2 = document.getElementById("player-2").value;
+    player1 = document.getElementById("player1").value;
+    player2 = document.getElementById("player2").value;
 
     if (player1 === "" || player2 === "") {
         alert("Enter both player names");
@@ -38,16 +38,16 @@ function playGame() {
     this.textContent = currentPlayer;
 
     if (checkWinner()) {
-        let winner = currentPlayer === "X" ? player1 : player2;
+        let winner = currentPlayer === "x" ? player1 : player2;
         message.textContent = `${winner} congratulations you won!`;
         gameOver = true;
         return;
     }
 
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    currentPlayer = currentPlayer === "x" ? "o" : "x";
 
     message.textContent =
-        currentPlayer === "X"
+        currentPlayer === "x"
             ? `${player1}, you're up`
             : `${player2}, you're up`;
 }
